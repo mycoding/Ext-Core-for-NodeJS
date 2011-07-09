@@ -12,3 +12,36 @@ I will try to do some samples.
 
 Samples with explanation are here (in Russian)
 http://javascript.ru/blog/mycoding/Ext-Core-dlya-NodeJS
+
+index.js
+Templating
+var Ext = require('./extcorenodejs.js').Ext;
+Ext.init(this);
+
+var data = {
+    name: 'Jack Slocum',     
+    kids: [{
+        name: 'Sara Grace',
+        age:3
+    },{
+        name: 'Zachary',
+        age:2
+    },{
+        name: 'John James',
+        age:0
+    }]
+};
+
+var tpl = new Ext.XTemplate(
+    '<p>Name: {name}</p>',
+    '<p>Kids: ',
+    '<tpl for="kids">',
+        '<tpl if="age > 1">',
+            '<p>{name}</p>',
+            '<p>Dad: {parent.name}</p>',
+        '</tpl>',
+    '</tpl></p>'
+);
+
+var html = tpl.applyTemplate(data);
+console.log(html);
