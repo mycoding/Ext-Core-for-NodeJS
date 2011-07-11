@@ -13,8 +13,8 @@ I will try to do some samples.
 Samples with explanation are here (in Russian)
 http://javascript.ru/blog/mycoding/Ext-Core-dlya-NodeJS
 
-index.js
-Templating
+**Templating**
+
 var Ext = require('./extcorenodejs.js').Ext;
 Ext.init(this);
 
@@ -45,3 +45,18 @@ var tpl = new Ext.XTemplate(
 
 var html = tpl.applyTemplate(data);
 console.log(html);
+
+**Email**
+// Test version.
+new Ext.Mail({
+	to: "mycoding@mail.ru",
+	from: "me@example.com",	
+	subject: "Knock knock...",
+	body: "Who's there?",
+	/*success:function(){
+		console.log('Success');
+	},*/
+	failure:function(err){
+		console.log('Error:'+err);
+	}
+}).send();
