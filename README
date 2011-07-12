@@ -4,10 +4,10 @@ email:mycodingqt@gmail.com
 icq:395712335
 Skype:MycodingExtJS
 
-ExtCoreNodeJS - framework for NodeJS on base of Ext Core and some classes of ExtJS.
+ExtNodeJS - framework for NodeJS on base of Ext Core and several classes of ExtJS.
 
-It is in developing. At the moment it is possible to do Templating of pages and some basic tricks. 
-Actually it is easy to see from source code what it is possible. 
+It is in developing. 
+At the moment it is possible to do Templating of pages, sending mails and some basic tricks.
 I will try to do some samples.
 
 Samples with explanation are here (in Russian)
@@ -15,7 +15,7 @@ http://javascript.ru/blog/mycoding/Ext-Core-dlya-NodeJS
 
 **Templating**
 
-var Ext = require('./extcorenodejs.js').Ext;
+var Ext = require('./extnodejs.js').Ext;
 Ext.init(this);
 
 var data = {
@@ -46,16 +46,17 @@ var tpl = new Ext.XTemplate(
 var html = tpl.applyTemplate(data);
 console.log(html);
 
-**Email**
-// Test version.
+**Sending Email**
+var Ext = require('./extnodejs.js').Ext;
+Ext.init(this);
 new Ext.Mail({
 	to: "mycoding@mail.ru",
 	from: "me@example.com",	
 	subject: "Knock knock...",
 	body: "Who's there?",
-	/*success:function(){
+	success:function(){
 		console.log('Success');
-	},*/
+	},
 	failure:function(err){
 		console.log('Error:'+err);
 	}
