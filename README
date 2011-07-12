@@ -61,3 +61,20 @@ new Ext.Mail({
 		console.log('Error:'+err);
 	}
 }).send();
+
+**Sending responce to url**
+//Test
+var Ext = require('./extnodejs.js').Ext;
+Ext.init(this);
+new Ext.Ajax({
+	url: 'http://moc-081.ru/json.php',
+	method:'GET',
+	params: { foo: 'bar' },
+	success: function(data){
+		var obj = Ext.decode(data);
+		console.log(obj);
+	},
+	failure: function(){
+		console.log('failure');
+	}
+}).request();
